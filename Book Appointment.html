@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Appointment</title>
+    <style>
+        /* Add your CSS styling here */
+    </style>
+</head>
+<body>
+    <h1>Book Appointment</h1>
+    <form id="appointmentForm">
+        <label for="date">Select Date:</label>
+        <input type="date" id="date" name="date" required><br><br>
+
+        <label for="time">Select Time:</label>
+        <input type="time" id="time" name="time" required><br><br>
+
+        <label for="doctor">Select Doctor:</label>
+        <select id="doctor" name="doctor" required>
+            <option value="">Select</option>
+            <option value="Dr. Swetha">Dr. Swetha</option>
+            <option value="Dr. Priya">Dr. Priya</option>
+            <option value="Dr. Alex">Dr. Alex</option>
+        </select><br><br>
+
+        <button type="submit">Book Appointment</button>
+    </form>
+
+    <script>
+        // JavaScript code to handle form submission
+        document.getElementById("appointmentForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent default form submission
+            var formData = new FormData(this); // Get form data
+            // Convert form data to JSON
+            var appointmentData = {};
+            formData.forEach(function(value, key){
+                appointmentData[key] = value;
+            });
+            // Send appointment data to server or process it as needed
+            console.log(appointmentData); // For demonstration purposes
+            // You can perform further actions here, such as sending the data to a server
+        });
+    </script>
+</body>
+</html>
